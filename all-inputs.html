@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Bootstrap All Form Elements</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+    <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/easydropdown.css">
+    <link href="css/default.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1 class="text-center"><a href="https://www.w3schools.com/tags/att_input_type.asp">Form Elements</a>
+                </h1>
+            </div>
+        </div>
+    </div>
+</header>
+<hr>
+<main>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-offset-2 col-sm-8 col-xs-12">
+                <form id="valForm">
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="control-label" for="text1">Sample Text</label>
+                            <input type="text" class="form-control" name="sample text" id="text1"
+                                   placeholder="Enter Text" required>
+                            <span class="popup" tabindex="0"><span>It has require field validation with name attribute and the value of name attribute will be appended to required error message.</span></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="emailText">Sample Email</label>
+                            <input type="email" class="form-control" id="emailText" placeholder="Enter Email" required>
+                            <span class="popup" tabindex="0"><span>Enter your email address. It has required field validation.</span></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="password1">Sample Password</label>
+                            <input type="password" class="form-control" id="password1" placeholder="Enter Password"
+                                   pattern="[a-z,0-9]{1,15}" required>
+                            <span class="popup"
+                                  tabindex="0"><span>Must contain alphanumeric data. It has required field and pattern validation. So you must enter alphanumeric data.</span></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="url1">Sample URL</label>
+                            <input type="url" class="form-control" id="url1"
+                                   placeholder="Enter URL i.e https://www.google.com" required>
+                            <span class="popup" tabindex="0"><span>Enter your website URL. It has required field validation.</span></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="number1">Sample Number</label>
+                            <input type="number" class="form-control" id="number1"
+                                   placeholder="Enter a number between 0 - 100" min="1" max="100" required>
+                            <span class="popup" tabindex="0"><span>Enter a number. It has required field validation with min and max attribute.</span></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="search1">Sample Search</label>
+                            <input type="search" class="form-control" id="search1" placeholder="Enter text to search"
+                                   required>
+                            <span class="popup" tabindex="0"><span>Enter text that you want to search. It has required field validation.</span></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="telephone">Sample Telephone</label>
+                            <input type="tel" class="form-control" id="telephone" placeholder="03xxxxxxxxx"
+                                   minlength="10" maxlength="11" required>
+                            <span class="popup" tabindex="0"><span>Enter 11 digit mobile mobile number. It has required field validation with minlength and maxlength attributes.</span></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="sampleDate">Sample Date</label>
+                            <input type="date" class="form-control" id="sampleDate" min="2018-01-01" max="2020-12-31"
+                                   placeholder="Select a Date" required>
+                            <span class="popup" tabindex="0"><span>Select a Date. It has required field validation with min and max attribute.</span></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="localDate">Sample Local Date</label>
+                            <input type="datetime-local" class="form-control" id="localDate"
+                                   placeholder="Select a date in local format" required>
+                            <span class="popup" tabindex="0"><span>Select a date in local format. It has required field validation.</span></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="time1">Sample Time</label>
+                            <input type="time" class="form-control" id="time1" placeholder="Select time" required>
+                            <span class="popup" tabindex="0"><span>Select time, It has required field validation.</span></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="month1">Sample Month</label>
+                            <input type="month" class="form-control" id="month1" placeholder="Select month" required>
+                            <span class="popup" tabindex="0"><span>Select month, It has required field validation.</span></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="week1">Sample Week</label>
+                            <input type="week" class="form-control" id="week1" placeholder="Select week" required>
+                            <span class="popup" tabindex="0"><span>Select week, It has required field validation.</span></span>
+                        </div>
+                        <div class="form-group styled-checkbox">
+                            <input type="checkbox" id="checkbox1" required>
+                            <label class="control-label" for="checkbox1">Sample Checkbox</label>
+                        </div>
+                        <div class="form-group styled-radio ">
+                            <input type="radio" id="option1" required>
+                            <label for="option1" class="control-label">Sample Radio</label>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="colorbox">Sample Color</label>
+                            <input type="color" class="form-control" id="colorbox" placeholder="Select color" required>
+                            <span class="popup" tabindex="0"><span>Select a color, It has required field validation.</span></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="file1">Sample File</label>
+                            <input type="file" class="form-control" id="file1" placeholder="Select a file" required>
+                            <span class="popup" tabindex="0"><span>Select a file, It has required field validation.</span></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="range1">Sample Range</label>
+                            <input type="range" id="range1" placeholder="Select Range" required>
+                            <span class="popup" tabindex="0"><span>Select your range, It has required field validation.</span></span>
+                        </div>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <legend>CheckBoxes List</legend>
+                        <div class="checkboxes styled-checkbox form-group"
+                             data-require-error="check at least one checkbox from list" required>
+                            <p>Please select atleast one option</p>
+                            <input type="checkbox" name="checkboxgroup1[]" id="checkboxG1">
+                            <label for="checkboxG1">Checkbox 1</label>
+                            <input type="checkbox" name="checkboxgroup1[]" id="checkboxG2">
+                            <label for="checkboxG2">Checkbox 2</label>
+                            <input type="checkbox" name="checkboxgroup1[]" id="checkboxG3">
+                            <label for="checkboxG3">Checkbox 3</label>
+                        </div>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <legend>Radio list</legend>
+                        <div class="styled-radio form-group" data-require-error="check atleast one radio">
+                            <p>Please select atleast one option</p>
+                            <input type="radio" name="test" id="radio1" required/>
+                            <label for="radio1">Radio Btn 1</label>
+                            <input type="radio" name="test" id="radio2" required/>
+                            <label for="radio2">Radio Btn 2</label>
+                            <input type="radio" name="test" id="radio3" required/>
+                            <label for="radio3">Radio Btn 3</label>
+                        </div>
+                    </fieldset>
+                    <hr/>
+                    <fieldset>
+                        <legend>Input fields that defines custom error message using data attributes.</legend>
+                        <p>Two types of data attributes can be passed "<b>data-require-error</b>" and "<b>data-pattern-error</b>".</p>
+                        <div class="form-group">
+                            <label class="control-label" for="exampleName">Name</label>
+                            <input type="text" class="form-control" id="exampleName" placeholder="Name"
+                                   pattern="[a-z]{1,15}" data-require-error="Name is required"
+                                   data-pattern-error="Username should be lower case upto 15 characters" required>
+                            <span class="popup" tabindex="0">
+                        <span>Name field is required. It has custom message defined with data attributes</span>
+                    </span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email address"
+                                   data-require-error="Email is required" data-pattern-error="Invalid email format" required>
+                            <span class="popup" tabindex="0">
+                        <span>Email field is require. It has custom message defined with data attributes </span>
+                    </span>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div class="form-group buttons-group">
+                            <input type="submit" value="Submit" class="btn btn-primary submit">
+                            <input type="image" src="images/btn-image.png" title="sample image button">
+                            <input type="reset" value="Reset Fields" class="btn btn-default reset">
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/moment.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap-datetimepicker.min.js"></script>
+<script src="js/jquery.easydropdown.js"></script>
+<script src="js/form-validation.js"></script>
+<script>
+    document.getElementById('valForm').validateForm({
+        invalidEmail: "",
+        invalidNumber: "",
+        invalidPhone: "",
+        invalidOption: "",
+        invalidCheckbox: "",
+        invalidRange: "",
+        successClass: "",
+        errorClass: "",
+        closestTagSelector: "",
+        messageWrapperTag: "<span class='help-block'></span>"
+    });
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>

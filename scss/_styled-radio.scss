@@ -1,0 +1,144 @@
+/*
+How to use It:
+
+You need an sprite image that shows different states for radio.
+And then you have to define positions for each state in variables.
+
+The image icon added as background for css:after selector and add padding to label
+
+You can apply your custom style to wrapper div
+
+Variables description:
+w: width for single state of radio
+h: height for single state of radio
+g: gap between text and state image
+top: css:after selector position in top
+right: css:after selector position in right
+bottom: css:after selector position in bottom
+left:  css:after selector position in left
+ypos: background y position for state icon
+xpos: background x position for state icon
+img-pos: where you want to add state icon, either on left/right or top/bottom, You have to define coordinates
+according to position
+*/
+
+//Use these variables to change raio image and width/height
+//radio image and width/height
+$radio-box: (img: url('icons/blue.png'), w: 22px, h: 100px, g: 35px);
+//image positioning for radio state
+$radio-box-img-position: (top: 0px, right: auto, bottom:0px, left:0px, ypos: center);
+//where the icon will be displayed: values can be top,right,bottom,left
+$img-pos: left;
+
+//unchecked States for radio
+$unchecked-state: (xpos: -200px);
+$unchecked-hover-state: (xpos: -224px);
+//checked states
+$checked-state: (xpos: -248px);
+$checked-hover-state: (xpos: -324px);
+
+//disable radio states
+$disable-unchecked-state: (xpos: -272px);
+$disable-checked-state: (xpos: -296px);
+
+@mixin radio-box-padding($val) {
+  @if $img-pos == top {
+    padding-top: $val;
+  } @else if $img-pos == right {
+    padding-right: $val;
+  } @else if $img-pos == bottom {
+    padding-bottom: $val;
+  } @else if $img-pos == left {
+    padding-left: $val;
+  }
+}
+
+//please use above variables to change styles related to radio
+.styled-radio {
+  position: relative;
+  label {
+    position: relative;
+    cursor: pointer;
+    //display: table-cell;
+    vertical-align: middle;
+    //height: map-get($radio-box, h);
+    margin-right: 15px;
+    @include radio-box-padding(map-get($radio-box, g));
+    &:after {
+      content: '';
+      position: absolute;
+      width: map-get($radio-box, w);
+      height: map-get($radio-box, h);
+      background-image: map-get($radio-box, img);
+      background-repeat: no-repeat;
+      top: map-get($radio-box-img-position, top);
+      right: map-get($radio-box-img-position, right);
+      bottom: map-get($radio-box-img-position, bottom);
+      left: map-get($radio-box-img-position, left);
+      margin: auto;
+    }
+  }
+  input[type=radio] {
+    position: absolute;
+    top: map-get($radio-box-img-position, top);
+    left: map-get($radio-box-img-position, left);
+    z-index: -1;
+    opacity: 0;
+    //to hide in ie 8
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    & + label {
+      &:after {
+        //unchecked state of radio button
+        background-position: map-get($unchecked-state, xpos) map-get($radio-box-img-position, ypos);
+      }
+      &:hover:after {
+        //unchecked hover state of radio button
+        background-position: map-get($unchecked-hover-state, xpos) map-get($radio-box-img-position, ypos);
+      }
+    }
+    &:focus, &:active {
+      & + label {
+        &:after, &:after {
+          //unchecked hover state of radio button
+          background-position: map-get($unchecked-state, xpos) map-get($radio-box-img-position, ypos);
+        }
+      }
+    }
+    &:checked {
+      + label {
+        &:after {
+          //checked state of radio button
+          background-position: map-get($checked-state, xpos) map-get($radio-box-img-position, ypos);
+        }
+        &:hover:after, &:focus:after {
+          //checked hover,focus state of radio button
+          background-position: map-get($checked-hover-state, xpos) map-get($radio-box-img-position, ypos);
+        }
+      }
+      &:focus {
+        & + label {
+          &:after {
+            //checked hover,focus state of radio button
+            background-position: map-get($checked-hover-state, xpos) map-get($radio-box-img-position, ypos);
+          }
+        }
+      }
+    }
+    &:disabled {
+      & + label {
+        &:after {
+          //unchecked disable state of radio button
+          background-position: map-get($disable-unchecked-state, xpos) map-get($radio-box-img-position, ypos);
+        }
+      }
+      &:checked {
+        & + label {
+          &:after {
+            //checked disable state of radio button
+            background-position: map-get($disable-checked-state, xpos) map-get($radio-box-img-position, ypos);
+          }
+        }
+      }
+    }
+  }
+}

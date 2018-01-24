@@ -1,0 +1,143 @@
+/*
+How to use It:
+
+You need an sprite image that shows different states for checkbox.
+And then you have to define positions for each state in variables.
+
+The image icon added as background for css:after selector and add padding to label
+
+You can apply your custom style to wrapper div
+
+Variables description:
+w: width for single state of checkbox
+h: height for single state of checkbox
+g: gap between text and state image
+top: css:after selector position in top
+right: css:after selector position in right
+bottom: css:after selector position in bottom
+left:  css:after selector position in left
+ypos: background y position for state icon
+xpos: background x position for state icon
+img-pos: where you want to add state icon, either on left/right or top/bottom, You have to define coordinates
+according to position
+*/
+
+//Use these variables to change checkbox image and width/height
+$check-box: (img: url('icons/blue.png'), w: 22px, h: 22px, g: 35px);
+//image positioning for checkbox state
+$check-box-img-position: (top: auto, right: auto, bottom:0px, left:0px, ypos: 0);
+//where the icon will be displayed: values can be top,right,bottom,left
+$img-pos: left;
+
+//unchecked States for Checkbox
+$unselected-state: (xpos: -55px);
+$unselected-hover-state: (xpos: -79px);
+//checked states
+$selected-state: (xpos: -103px);
+$selected-hover-state: (xpos: -176px);
+
+//disable checkbox states
+$disable-unchecked-state: (xpos: -127px);
+$disable-checked-state: (xpos: -150px);
+
+@mixin checkbox-padding($val) {
+  @if $img-pos == top {
+    padding-top: $val;
+  } @else if $img-pos == right {
+    padding-right: $val;
+  } @else if $img-pos == bottom {
+    padding-bottom: $val;
+  } @else if $img-pos == left {
+    padding-left: $val;
+  }
+}
+
+//please use above variables to change styles related to checkbox
+.styled-checkbox {
+  position: relative;
+  label {
+    position: relative;
+    cursor: pointer;
+    //display: table-cell;
+    vertical-align: middle;
+    //height: map-get($check-box, h);
+    margin-right: 15px;
+    @include checkbox-padding(map-get($check-box, g));
+    &:after {
+      content: '';
+      position: absolute;
+      width: map-get($check-box, w);
+      height: map-get($check-box, h);
+      background-image: map-get($check-box, img);
+      background-repeat: no-repeat;
+      top: map-get($check-box-img-position, top);
+      right: map-get($check-box-img-position, right);
+      bottom: map-get($check-box-img-position, bottom);
+      left: map-get($check-box-img-position, left);
+      margin: auto;
+    }
+  }
+  input[type=checkbox] {
+    position: absolute;
+    top: map-get($check-box-img-position, top);
+    left: map-get($check-box-img-position, left);
+    z-index: -1;
+    opacity: 0;
+    //to hide in ie 8
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    & + label {
+      &:after {
+        //unchecked state of check box
+        background-position: map-get($unselected-state, xpos) map-get($check-box-img-position, ypos);
+      }
+      &:hover:after {
+        //unchecked hover state of check box
+        background-position: map-get($unselected-hover-state, xpos) map-get($check-box-img-position, ypos);
+      }
+    }
+    &:focus, &:active {
+      & + label {
+        &:after, &:after {
+          //unchecked focus and active state of check box
+          background-position: map-get($unselected-hover-state, xpos) map-get($check-box-img-position, ypos);
+        }
+      }
+    }
+    &:checked {
+      + label {
+        &:after {
+          //checked state of checkbox
+          background-position: map-get($selected-state, xpos) map-get($check-box-img-position, ypos);
+        }
+        &:hover:after, &:focus:after {
+          //checked hover state of checkbox
+          background-position: map-get($selected-hover-state, xpos) map-get($check-box-img-position, ypos);
+        }
+      }
+      &:focus {
+        & + label {
+          &:after {
+            //checked focus state of checkbox
+            background-position: map-get($selected-hover-state, xpos) map-get($check-box-img-position, ypos);
+          }
+        }
+      }
+    }
+    &:disabled {
+      & + label {
+        &:after {
+          //unchecked disable state of checkbox
+          background-position: map-get($disable-unchecked-state, xpos) map-get($check-box-img-position, ypos);
+        }
+      }
+      &:checked {
+        & + label {
+          &:after {
+            //checked disable state of checkbox
+            background-position: map-get($disable-checked-state, xpos) map-get($check-box-img-position, ypos);
+          }
+        }
+      }
+    }
+  }
+}

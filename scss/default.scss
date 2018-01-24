@@ -1,0 +1,379 @@
+
+@import "styled-checkbox";
+@import "styled-radio";
+
+// Variables
+
+$screen-xs: 640px;
+
+body{
+  font-family: 'Roboto', sans-serif;
+}
+
+form{
+  box-shadow: 0 0px 13px rgba(60, 63, 125, 0.2);
+  padding: 20px 120px 20px 68px;
+  margin-bottom: 20px;
+  @media screen and (max-width: $screen-xs) {
+    padding: 20px 25px 30px;
+  }
+  fieldset{
+    clear:both;
+    legend{
+      color: #0e5273;
+      border-bottom: 1px solid #0e5273;
+      margin-bottom: 30px;
+    }
+  }
+  .form-group{
+    position: relative;
+    width: 100%;
+    float: left;
+    //z-index: 1;
+    .dropdown{
+      width: 100%;
+      .carat{
+        -webkit-transition: .15s ease-out;
+        -moz-transition: .15s ease-out;
+        -o-transition: .15s ease-out;
+        transition: .15s ease-out;
+      }
+      .selected{
+        position: relative;
+        padding-left: 35px;
+        &:before {
+          content: '';
+          display: block;
+          position: absolute;
+          right: auto;
+          margin: auto;
+          left: 10px;
+        }
+        &[data-type="message"] {
+          padding-left: 15px;
+          &:before {
+            display: none;
+          }
+        }
+        &[data-type="demo1"] {
+          &:before {
+            content: url(icons/Beauty_saloon.png);
+          }
+        }
+        &[data-type="demo2"] {
+          &:before {
+            content: url(icons/Cars.png);
+          }
+        }
+        &[data-type="demo3"] {
+          &:before {
+            content: url(icons/Library.png);
+          }
+        }
+        &[data-type="demo4"] {
+          &:before {
+            content: url(icons/ticket.png);
+          }
+        }
+        &[data-type="demo5"] {
+          &:before {
+            content: url(icons/tools.png);
+          }
+        }
+        &[data-type="demo6"] {
+          &:before {
+            content: url(icons/Tyres.png);
+          }
+        }
+      }
+      div{
+        border-radius: 0 0 7px 7px;
+      }
+      ul{
+        padding-left: 0;
+        border-radius: 3px;
+        li{
+          position: relative;
+          padding-left: 35px;
+          &:before{
+            position: absolute;
+            width: 35px;
+            height: 30px;
+            //content: url("icon.png");
+            left: 10px;
+            top: 8px;
+          }
+          &[data-type="message"] {
+            padding-left: 15px;
+            &:before {
+              display: none;
+            }
+          }
+          &[data-type="demo1"] {
+            &:before {
+              content: url(icons/Beauty_saloon.png);
+            }
+          }
+          &[data-type="demo2"] {
+            &:before {
+              content: url(icons/Cars.png);
+            }
+          }
+          &[data-type="demo3"] {
+            &:before {
+              content: url(icons/Library.png);
+            }
+          }
+          &[data-type="demo4"] {
+            &:before {
+              content: url(icons/ticket.png);
+            }
+          }
+          &[data-type="demo5"] {
+            &:before {
+              content: url(icons/tools.png);
+            }
+          }
+          &[data-type="demo6"] {
+            &:before {
+              content: url(icons/Tyres.png);
+            }
+          }
+          &.focus{
+            background-color: #e3e3e3;
+            color: #333333;
+          }
+        }
+      }
+    }
+    .form-control{
+      height: 50px;
+      border-radius: 4px;
+      padding-right: 30px;
+      @media screen and (max-width: $screen-xs) {
+        width: 95%;
+      }
+      &.multi-select{
+        height: 100px;
+      }
+    }
+    .date{
+      .form-control{
+        @media screen and (max-width: $screen-xs) {
+          width: 100%;
+        }
+      }
+    }
+    label{
+      text-align: right;
+      padding-top: 15px;
+    }
+    textarea{
+      &.form-control{
+        height: 100px;
+        border-radius: 4px;
+        resize: none;
+      }
+    }
+    .popup{
+      position: absolute;
+      top: 54px;
+      right: -35px;
+      width: 19px;
+      height: 19px;
+      cursor: pointer;
+      @media screen and (max-width: $screen-xs) {
+        right: -17px;
+      }
+      &:before{
+        content: url(icons/help.png);
+        width: 19px;
+        height: 19px;
+        position: absolute;
+        //border: 2px solid transparent;
+        //border-radius: 50%;
+      }
+      &:after{
+        content: '';
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        border: 2px solid transparent;
+        border-radius: 50%;
+        top: -3px;
+        left: -3px;
+      }
+      span{
+        display: none;
+        position: absolute;
+        width: 340px;
+        background-color: #f4f4f4;
+        border: 1px solid #bfdeaf;
+        padding: 20px 15px;
+        border-radius: 4px;
+        left: 50px;
+        z-index: 1;
+        top: -22px;
+        font-size: 12px;
+        //opacity:0;
+        //transition:opacity 0.3s linear;
+        &:before{
+          content: url(icons/popup-left-arrow.png);
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          margin: auto;
+          left: -18px;
+          height: 36px;
+        }
+        @media screen and (max-width: $screen-xs) {
+          left: auto;
+          right: -20px;
+          top: 52px !important;
+          width: 200px;
+          &:before{
+            bottom: auto;
+            left: auto;
+            right: 22px;
+            top: -27px;
+            transform: rotate(90deg);
+          }
+        }
+      }
+      &:hover, &:focus, &:active{
+        span{
+          display: block;
+          //opacity: 1;
+          -webkit-transition: border-radius 2s;
+          transition: border-radius 2s;
+        }
+      }
+      &:focus, &:active{
+        outline: 0;
+        &:before{
+          //border: 2px solid #4D90FE;
+        }
+        &:after{
+          border: 2px solid #4D90FE;
+        }
+        span{
+          outline: 0;
+          &:before{
+            outline: 0;
+          }
+        }
+      }
+    }
+    .require{
+      span{
+        color: red;
+      }
+    }
+    .multiple-select{
+      height: 100px;
+    }
+    &.styled-checkbox, &.styled-radio{
+      label{
+        padding-top: 0;
+        margin-bottom: 15px;
+        display: block;
+        text-align: left;
+      }
+    }
+    &.select-wrap{
+      .focus{
+        &.open{
+          z-index: 10;
+        }
+      }
+    }
+    &.select-wrap{
+      z-index: 10;
+    }
+    &.active{
+      z-index: 11;
+    }
+    // DD Options
+    .dd-selected-text, .dd-option-text{
+      padding-top: 7px;
+    }
+    .dd-select{
+      .dd-selected-text{
+        line-height: 20px !important;
+      }
+    }
+    .dd-options{
+      li{
+        a{
+          &.dd-option{
+            .dd-option-text{
+              line-height: 20px !important;
+            }
+          }
+        }
+      }
+    }
+  }
+  .has-error{
+    .form-control{
+      background: url("icons/cross.png") no-repeat right 10px center;
+      &.multiple-select{
+        background: none;
+      }
+    }
+    .date{
+      input{
+        border-right: 0;
+      }
+      .input-group-addon{
+        color: #555;
+        background-color: #eee;
+        border-left: 1px solid #a94442;
+      }
+    }
+  }
+  .has-success{
+    .form-control{
+      background: url("icons/tick.png") no-repeat right 10px center;
+      &.multiple-select{
+        background: none;
+      }
+    }
+  }
+  &.variation2{
+    .form-group{
+      .popup{
+        top: 10px;
+        right: -33px;
+      }
+    }
+  }
+  &.variation3{
+    padding: 52px 120px 20px 35px;
+    .form-group{
+      .popup{
+        top: 10px;
+        right: -33px;
+      }
+      label{
+        text-align: left;
+        padding-left: 0;
+      }
+    }
+  }
+}
+.styled-checkbox{
+  &.has-error{
+    input[type=checkbox] + label{
+      &:after{
+        background-position: -30px 0;
+      }
+    }
+  }
+}
+
+.buttons-group,
+.buttons-group input {
+  margin-right: 15px;
+  vertical-align: middle;
+}

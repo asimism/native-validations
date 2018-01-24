@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Bootstrap All Form Elements</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+    <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/easydropdown.css">
+    <link href="css/default.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1 class="text-center">Form Elements</h1>
+            </div>
+        </div>
+    </div>
+</header>
+<hr>
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-offset-2 col-sm-8 col-xs-12">
+                <form id="valForm">
+                    <h3>This input is outside Fieldset </h3>
+                    <div class="form-group">
+                        <label class="control-label" for="exampleName0">Name</label>
+                        <input type="text" class="form-control" id="exampleName0" placeholder="Name"
+                               pattern="[a-z]{1,15}" data-require-error="Name is required"
+                               data-pattern-error="Username should be lower case upto 15 characters" required>
+                        <span class="popup" tabindex="0">
+                        <span>Discounts may apply if you already hold home, car or life policies with us. Discounts may apply if you already hold home, car or life policies with us.</span>
+                    </span>
+                    </div>
+                    <fieldset>
+                        <legend>Simple form elements</legend>
+                        <div class="form-group">
+                            <label class="control-label" for="exampleName">Name</label>
+                            <input type="text" class="form-control" id="exampleName" placeholder="Name"
+                                   pattern="[a-z]{1,15}" data-require-error="Name is required"
+                                   data-pattern-error="Username should be lower case upto 15 characters" required>
+                            <span class="popup" tabindex="0">
+                        <span>Discounts may apply if you already hold home, car or life policies with us. Discounts may apply if you already hold home, car or life policies with us.</span>
+                    </span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email address"
+                                   data-require-error="Email is required" data-pattern-error="Invalid email format" required>
+                            <span class="popup" tabindex="0">
+                        <span>Discounts may apply if you already hold home, car or life policies with us. </span>
+                    </span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1"
+                                   placeholder="Password"
+                                   data-require-error="Password is required" required>
+                            <span class="popup" tabindex="0">
+                        <span>Discounts may apply if you already hold home, car or life policies with us. Discounts may apply if you already hold home, car or life policies with us.
+                        Discounts may apply if you already hold home, car or life policies with us. Discounts may apply if you already hold home, car or life policies with us.</span>
+                    </span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="exampleInputMessage">Message Box</label>
+                            <textarea class="form-control" id="exampleInputMessage" placeholder="Type your message here"
+                                      rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="exampleInputNumber">Number Only</label>
+                            <input type="number" class="form-control" id="exampleInputNumber" placeholder="Number Only"
+                                   data-require-error="Number is required" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="selectOptionsMultiple">Multi Seclect</label>
+                            <select multiple class="form-control multiple-select" id="selectOptionsMultiple"
+                                    data-require-error="Select atleast 1 option from the list" required>
+                                <option value="">Please select atleast one option</option>
+                                <option value="A">A</option>
+                                <option value="B">B</option>
+                                <option value="C">C</option>
+                                <option value="D">D</option>
+                                <option value="E">E</option>
+                                <option value="F">F</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputFile">File input</label>
+                            <input type="file" id="exampleInputFile" required>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Complex form elements Styled with external libraries</legend>
+                        <div class="form-group select-wrap">
+                            <label class="control-label" for="selectOptions">Styled Select</label>
+                            <select class="form-control select-options" id="selectOptions" required>
+                                <option data-type="message" value="">Please select one option</option>
+                                <option data-type="demo1" value="A">A</option>
+                                <option data-type="demo2" value="B">B</option>
+                                <option data-type="demo3" value="C">C</option>
+                                <option data-type="demo4" value="D">D</option>
+                                <option data-type="demo5" value="E">E</option>
+                                <option data-type="demo6" value="F">F</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="datepickerfield">Choose Date</label>
+                            <div class="input-group date" id="datetimepicker">
+                                <input type="text" class="form-control" placeholder="Select Date" id="datepickerfield" required>
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Checkboxes and Radios</legend>
+                        <div class="styled-radio form-group" data-require-error="check atleast one radio">
+                            <p>Please select atleast one option</p>
+                            <input type="radio" name="test" id="radio1" required/>
+                            <label for="radio1">Radio Btn 1</label>
+                            <input type="radio" name="test" id="radio2" required/>
+                            <label for="radio2">Radio Btn 2</label>
+                            <input type="radio" name="test" id="radio3" required/>
+                            <label for="radio3">Radio Btn 3</label>
+                        </div>
+                        <div class="clearfix"></div>
+                        <legend>Simple CheckBox elements 1</legend>
+                        <div class="checkboxes styled-checkbox form-group" data-require-error="check atleast one checkbox" required>
+                            <input type="checkbox" name="checkboxgroup1[]" id="checkbox1">
+                            <label for="checkbox1">Checkbox 1</label>
+                            <input type="checkbox" name="checkboxgroup1[]" id="checkbox2">
+                            <label for="checkbox2">Checkbox 2</label>
+                            <input type="checkbox" name="checkboxgroup1[]" id="checkbox3">
+                            <label for="checkbox3">Checkbox 3</label>
+                        </div>
+
+                    </fieldset>
+                    <div class="checkboxes styled-checkbox form-group">
+                        <input type="checkbox" name="checkbox" id="checkbox5"
+                               data-require-error="Please accept terms and condition." required>
+                        <label class="control-label" for="checkbox5">I agree with terms and conditions</label>
+                    </div>
+                    <input type="submit" value="submit" class="btn btn-primary submit">
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/moment.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap-datetimepicker.min.js"></script>
+<script src="js/jquery.easydropdown.js"></script>
+<script src="js/form-validation.js"></script>
+<script>
+    document.getElementById('valForm').validateForm();
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>
