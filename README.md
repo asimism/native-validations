@@ -2,10 +2,8 @@
 A javascript library to interecpt html5 validations. Main focus of this library is to only use html5 native validations and able to intercept the default messages and replace them with custom messages. Additionally to have the ability to add css classes in html control's wrapper element to assist in writing CSS hooks for validation messages
 # how to write error messages in the html input itself
 Please write two data attributes for two types of validations
-For Required Field Error use following : 
-data-require-error="Name is required"
-For pattern mismatch Error use following:
-data-pattern-error="Username should be lower case upto 15 characters"
+- For Required Field Error use data-require-error="Name is required"
+- For pattern mismatch Error use data-pattern-error="Username should be lower case upto 15 characters"
 # How to bind
 document.getElementById('valForm').validateForm({optional cofigurations Array});
 # Configuration object
